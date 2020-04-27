@@ -1,7 +1,10 @@
+<!--
+ * @Author: PanFeng
+ * @Date: 2020-04-26 16:55:34
+ -->
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld :msg="msg"/>
   </div>
 </template>
 
@@ -12,17 +15,17 @@ export default {
   name: 'App',
   components: {
     HelloWorld
-  }
+  },
+  data() {
+    return {
+      msg: 'Language Online'
+    }
+  },
 }
 </script>
-
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app{
+    position: relative;
+    width: 100%;
+  }
 </style>
