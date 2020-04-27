@@ -1,4 +1,10 @@
+<!--
+ * @Author: PanFeng
+ * @Date: 2020-04-26 16:55:55
+ -->
 # lang-online
+
+config the lang.js into different languages online
 
 ## Project setup
 ```
