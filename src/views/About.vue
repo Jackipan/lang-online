@@ -1,19 +1,36 @@
-<!--
- * @Author: PanFeng
- * @Date: 2020-04-29 09:58:33
- -->
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-    <TinyMce></TinyMce>
+  <div>
+    {{ msg }}
+    <tinymce-editor v-model="msg" :disabled="disabled" @onClick="onClick" ref="editor"></tinymce-editor>
+    <button @click="clear">清空内容</button>
+    <button @click="disabled = true">禁用</button>
   </div>
 </template>
-
 <script>
-import TinyMce from '@/components/TinyMce.vue'
+import TinymceEditor from "@/components/TinyMce.vue";
 export default {
   components: {
-    TinyMce
+    TinymceEditor
+  },
+  data() {
+    return {
+      msg: "Welcome to Use Tinymce Editor",
+      disabled: false
+    };
+  },
+  methods: {
+    //鼠标单击的事件
+    onClick(e, editor) {
+      console.log("Element clicked");
+      console.log(e);
+      console.log(editor);
+    },
+    //清空内容
+    clear() {
+      this.$refs.editor.clear();
+    }
   }
-}
+};
 </script>
+<style scoped>
+</style>

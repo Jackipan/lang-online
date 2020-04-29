@@ -12,7 +12,7 @@
           <el-button class="input button">导入文件</el-button>
         </div>
         <div class="lefttable">
-          <el-table></el-table>
+          <el-table :data="zh"></el-table>
         </div>
       </div>
       <div class="line"></div>
@@ -30,6 +30,7 @@
 
 <script>
 import darken from "darken";
+const zh = require("@/assets/langs/zh.json");
 
 const darkmode = new darken(function(active) {
   if (active) console.log("Dark mode is active");
@@ -45,6 +46,20 @@ export default {
       percentage: 100,
       customColor: "#468234"
     };
+  },
+  computed: {
+    zh: function() {
+      let arr = [];
+      for (const key in zh) {
+        arr.push(zh[key]);
+      }
+
+      for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+      }
+
+      return arr;
+    }
   },
   methods: {
     dark() {
@@ -63,7 +78,7 @@ export default {
   line-height: 100px;
   font-size: xx-large;
 }
-.dark{
+.dark {
   margin-left: 20px;
   display: inline;
 }

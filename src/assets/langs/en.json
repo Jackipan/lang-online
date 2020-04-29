@@ -1,13 +1,7 @@
 {
-    "main": {
-        "operaction": "Operaction",
-        "language": "EN/中"
-    },
-    "router": {
-        "maybe": "Maybe"
-    },
-    "table":{
-        "number":"Serial number",
-        "imei":"imei"
-    }
+    "operaction": "Operaction",
+    "language": "EN/中",
+    "maybe": "Maybe",
+    "number": "Serial number",
+    "imei": "imei"
 }

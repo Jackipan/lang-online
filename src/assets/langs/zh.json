@@ -1,13 +1,16 @@
-{
-    "main": {
+[
+    {
+        "id": "main",
         "operaction": "操作",
         "language": "EN/中"
     },
-    "router": {
+    {
+        "id": "router",
         "maybe": "可能"
     },
-    "table":{
+    {
+        "id":"table",
         "number":"序号",
-        "imei":"imei"
+        "IMEI":"IMEI"
     }
-}
+]

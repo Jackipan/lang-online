@@ -11,6 +11,37 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="icon" href="<%= BASE_URL %>favicon.ico">
   <title><%= htmlWebpackPlugin.options.title %></title>
+  <style>
+    html::-webkit-scrollbar {
+      width: 10px;
+      background-color: rgba(213, 213, 213, .8);
+    }
+
+    html::-webkit-scrollbar-track {
+      background-color: rgba(213, 213, 213, .8);
+      border-radius: .5rem;
+    }
+
+    html::-webkit-scrollbar-thumb {
+      /*width: 30px;*/
+      background-color: #969696;
+      border-radius: .5rem;
+    }
+
+    html::-webkit-scrollbar-button:start {
+      width: 100%;
+      height: auto;
+      background: url(../images/top.png) no-repeat;
+      background-size: contain;
+    }
+
+    html::-webkit-scrollbar-button:end {
+      width: 100%;
+      height: auto;
+      background: url(../images/down.png) no-repeat;
+      background-size: contain;
+    }
+  </style>
 </head>
 
 <body>

@@ -4,7 +4,7 @@
  -->
 <template>
   <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld msg="Vue.js App"/>
   </div>
 </template>
 
