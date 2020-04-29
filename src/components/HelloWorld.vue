@@ -1,6 +1,11 @@
+<!--
+ * @Author: PanFeng
+ * @Date: 2020-04-26 16:55:34
+ -->
 <template>
   <div class="main-container">
     <span class="title">{{ msg }}</span>
+    <el-button @click="dark">dark</el-button>
     <div class="container">
       <div class="left">
         <div class="lefthead">
@@ -24,6 +29,12 @@
 </template>
 
 <script>
+import darken from "darken";
+
+const darkmode = new darken(function(active) {
+  if (active) console.log("Dark mode is active");
+  else console.log("Dark mode is inactive");
+});
 export default {
   name: "HelloWorld",
   props: {
@@ -34,6 +45,11 @@ export default {
       percentage: 100,
       customColor: "#468234"
     };
+  },
+  methods: {
+    dark() {
+      darkmode.toggle();
+    }
   }
 };
 </script>
@@ -46,6 +62,10 @@ export default {
 .title {
   line-height: 100px;
   font-size: xx-large;
+}
+.dark{
+  margin-left: 20px;
+  display: inline;
 }
 .container {
   overflow: auto;
@@ -71,7 +91,7 @@ export default {
   width: 49%;
   /* border: 1px solid black; */
 }
-.el-table{
-  position:unset;
+.el-table {
+  position: unset;
 }
 </style>
