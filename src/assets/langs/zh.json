@@ -1,0 +1,13 @@
+{
+    "main": {
+        "operaction": "操作",
+        "language": "EN/中"
+    },
+    "router": {
+        "maybe": "可能"
+    },
+    "table":{
+        "number":"序号",
+        "imei":"imei"
+    }
+}
