@@ -3,10 +3,9 @@
  * @Date: 2020-04-26 19:19:43
  -->
 <template>
-  <div class="tinymce-editor">
-    <editor id="tinymce" v-model="myValue" :init="init" ></editor>
-  </div>
-</template><script>
+  <editor id="tinymce" v-model="myValue" :init="init"></editor>
+</template>
+<script>
 import tinymce from "tinymce/tinymce";
 import Editor from "@tinymce/tinymce-vue";
 import "tinymce/themes/silver/theme";
@@ -25,6 +24,15 @@ export default {
     value: {
       type: String,
       default: ""
+    },
+    disabled: {
+      type: Boolean,
+      default: true
+    },
+    jsonData: {
+      type: String,
+      default: "",
+      required: false
     },
     plugins: {
       type: [String, Array],
@@ -46,14 +54,15 @@ export default {
         skin_url: "/tinymce/skins/ui/oxide",
         plugins: this.plugins,
         toolbar: this.toolbar,
-        // branding: false,
-        // menubar: false,
+        branding: false,
+        menubar: false,
+        disabled: true,
         //此处为图片上传处理函数，这个直接用了base64的图片形式上传图片，
         //如需ajax上传可参考https://www.tiny.cloud/docs/configure/file-image-upload/#images_upload_handler
         images_upload_handler: (blobInfo, success, failure) => {
           const img = "data:image/jpeg;base64," + blobInfo.base64();
           success(img);
-          failure('image upload error!')
+          failure("image upload error!");
         }
       },
       myValue: this.value
@@ -68,6 +77,12 @@ export default {
     //可以添加一些自己的自定义事件，如清空内容
     clear() {
       this.myValue = "";
+    },
+    toObj(val) {
+      console.log("children :", val, "typeof: ", typeof val);
+      // let obj = tinymce.util.JSON.parse(val);
+      console.log("obj--------：", val);
+      // return obj
     }
   },
   watch: {
@@ -80,5 +95,5 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style>
 </style>

@@ -1,13 +1,16 @@
 <template>
   <div>
     {{ msg }}
-    <tinymce-editor v-model="msg" :disabled="disabled" @onClick="onClick" ref="editor"></tinymce-editor>
+    <tinymce-editor v-model="msg" :disabled=true @onClick="onClick" ref="editor"></tinymce-editor>
     <button @click="clear">清空内容</button>
-    <button @click="disabled = true">禁用</button>
+    <button @click="disabled=true">禁用</button>
+    <button @click="toObj">导入数据</button>
+    <button @click="toObj">导出数据</button>
   </div>
-</template>
+</template> 
 <script>
 import TinymceEditor from "@/components/TinyMce.vue";
+import enData from '@/assets/langs/en.json';
 export default {
   components: {
     TinymceEditor
@@ -15,7 +18,8 @@ export default {
   data() {
     return {
       msg: "Welcome to Use Tinymce Editor",
-      disabled: false
+      disabled: true,
+      jsonData: ''
     };
   },
   methods: {
@@ -28,8 +32,24 @@ export default {
     //清空内容
     clear() {
       this.$refs.editor.clear();
-    }
-  }
+    },
+    toObj(){
+      this.jsonData = enData
+      this.msg = JSON.stringify(enData)
+      console.log('this.msg: ',this.msg);
+      
+      // this.jsonData = '{"exists":false}'
+      // console.log('zhData: ',zhData);
+      // console.log('this.jsonData: ',this.jsonData);
+      
+      // console.log('typeof jsonData: ',typeof this.jsonData);
+      
+      this.$refs.editor.toObj(this.jsonData)
+    },
+  },
+  mounted() {
+    // console.log('init zhdata: ', zhData);
+  },
 };
 </script>
 <style scoped>
